@@ -299,6 +299,47 @@ let settingGroup = {
             }
         },
     ],
+    'sub-waveform': [
+        {
+            'label': 'sine',
+            'values': {
+                "sub_waveform": 0,
+            }
+        },
+        {
+            'label': 'tri',
+            'values': {
+                "sub_waveform": 0,
+            }
+        },
+        {
+            'label': 'square',
+            'values': {
+                "sub_waveform": 0,
+            }
+        },
+        {
+            'label': 'saw',
+            'values': {
+                "sub_waveform": 0,
+            }
+        },
+    ],
+    'sub-octave': [
+        {
+            'label': 'normal',
+            'weight': 100,
+            'values': {
+                "sub_octave": 0,
+            }
+        },
+        {
+            'label': 'octave-down',
+            'values': {
+                "sub_octave": 1,
+            }
+        },
+    ],
     'sub-volume': [
         {
             'label': 'volume1',
@@ -550,17 +591,21 @@ let settingGroup = {
     ],
     "modwheel": [
         {
-            'label': 'standard',
+            'label': 'vibrato',
+            'values': {
+                'poly_lfo_amplitude': 0,
+                'poly_lfo_tempo': 8,
+            },
             'modulations': [
                 {
                     "source": "poly_lfo",
                     "destination": "osc_2_tune",
-                    "amount": 1.2163750000000002061
+                    "amount": 0.4,
                 },
                 {
                     "source": "poly_lfo",
                     "destination": "osc_1_tune",
-                    "amount": 1.2186874999999997016
+                    "amount": 0.4,
                 },
                 {
                     "source": "mod_wheel",

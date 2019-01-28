@@ -6,7 +6,7 @@ let numPatchesToGenerate = 64;
 let bankPath = '/Users/priebe/Library/Audio/Presets/Helm/helmgen';
 let folder = 'helmgen';
 let patchBase = 'helmgen';
-let perturbFactor = 0.5;
+let perturbFactor = 0.1;
 
 for (var i = 0; i < numPatchesToGenerate; i++) {
     patchName = patchBase + '-' + zeroFill (i, 4)

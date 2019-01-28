@@ -80,7 +80,8 @@ function helmGen (author, name, folder)
         new helmSetting ( "osc_feedback_transpose", -24.0, 24.0, 49, 0.0, false ),
         new helmSetting ( "osc_feedback_tune", -1.0, 1.0, 0, 0.0, false ),
         new helmSetting ( "pitch_bend_range", 0.0, 48.0, 49, 2.0, true ),
-        new helmSetting ( "poly_lfo_amplitude", -1.0, 1.0, 0, 1.0, true ),
+        // not perturbable, b/c we use it to add modwheel vibrato 
+        new helmSetting ( "poly_lfo_amplitude", -1.0, 1.0, 0, 1.0, false ),
         new helmSetting ( "poly_lfo_frequency", -7.0, 6.0, 0, 1.0, true ),
         new helmSetting ( "poly_lfo_sync", 0.0, 3.0, 4, 1.0, true ),
         new helmSetting ( "poly_lfo_tempo", 0.0, 11.0, 12, 7.0, true ),
