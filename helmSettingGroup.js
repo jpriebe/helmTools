@@ -1,32 +1,380 @@
 let settingGroup = {
-    'amp-envelope' : [
+    'amp-attack' : [
         {
-            'label': 'bass',
+            'label': 'amp-attack-00',
             'values': {
-                "amp_attack": 0,
-                "amp_decay": 1.3894383302547885783,
-                "amp_release": 0.76470588235294112422,
-                "amp_sustain": 0.49218751955777406693, 
+                "amp_attack": 0.0,
+            }
+        },
+        {
+            'label': 'amp-attack-01',
+            'values': {
+                "amp_attack": 0.1,
+            }
+        },
+        {
+            'label': 'amp-attack-05',
+            'values': {
+                "amp_attack": 0.5,
+            }
+        },
+        {
+            'label': 'amp-attack-12',
+            'weight': 5,
+            'values': {
+                "amp_attack": 1.2,
+            }
+        },
+    ],
+    'amp-decay' : [
+        {
+            'label': 'amp-decay-03',
+            'values': {
+                "amp_decay": 0.3,
+            }
+        },
+        {
+            'label': 'amp-decay-06',
+            'values': {
+                "amp_decay": 0.6,
+            }
+        },
+        {
+            'label': 'amp-decay-12',
+            'weight': 2,
+            'values': {
+                "amp_decay": 1.2,
+            }
+        },
+    ],
+    'amp-sustain' : [
+        {
+            'label': 'amp-sustain-10',
+            'values': {
+                "amp_sustain": 1.0,
+            }
+        },
+        {
+            'label': 'amp-sustain-08',
+            'values': {
+                "amp_sustain": 0.8,
+            }
+        },
+        {
+            'label': 'amp-sustain-04',
+            'values': {
+                "amp_sustain": 0.4,
+            }
+        },
+        {
+            'label': 'amp-sustain-02',
+            'values': {
+                "amp_sustain": 0.2,
+            }
+        },
+        {
+            'label': 'amp-sustain-00',
+            'weight': 1,
+            'values': {
+                "amp_sustain": 0.0,
+            }
+        },
+    ],
+    'amp-release' : [
+        {
+            'label': 'amp-release-00',
+            'weight': 1,
+            'values': {
+                "amp_release": 0.0,
+            }
+        },
+        {
+            'label': 'amp-release-03',
+            'values': {
+                "amp_release": 0.3,
+            }
+        },
+        {
+            'label': 'amp-release-06',
+            'values': {
+                "amp_release": 0.6,
+            }
+        },
+        {
+            'label': 'amp-release-12',
+            'values': {
+                "amp_release": 1.2,
+            }
+        },
+        {
+            'label': 'amp-release-24',
+            'weight': 2,
+            'values': {
+                "amp_release": 2.4,
+            }
+        },
+        {
+            'label': 'amp-release-40',
+            'weight': 1,
+            'values': {
+                "amp_release": 4.0,
+            }
+        },
+    ],
+    'fil-attack' : [
+        {
+            'label': 'fil-attack-00',
+            'values': {
+                "fil_attack": 0.0,
+            }
+        },
+        {
+            'label': 'fil-attack-01',
+            'values': {
+                "fil_attack": 0.1,
+            }
+        },
+        {
+            'label': 'fil-attack-05',
+            'values': {
+                "fil_attack": 0.5,
+            }
+        },
+    ],
+    'fil-decay' : [
+        {
+            'label': 'fil-decay-03',
+            'values': {
+                "fil_decay": 0.3,
+            }
+        },
+        {
+            'label': 'fil-decay-06',
+            'values': {
+                "fil_decay": 0.6,
+            }
+        },
+        {
+            'label': 'fil-decay-12',
+            'weight': 2,
+            'values': {
+                "fil_decay": 1.2,
+            }
+        },
+    ],
+    'fil-sustain' : [
+        {
+            'label': 'fil-sustain-10',
+            'values': {
+                "fil_sustain": 1.0,
+            }
+        },
+        {
+            'label': 'fil-sustain-08',
+            'values': {
+                "fil_sustain": 0.8,
+            }
+        },
+        {
+            'label': 'fil-sustain-04',
+            'values': {
+                "fil_sustain": 0.4,
+            }
+        },
+        {
+            'label': 'fil-sustain-02',
+            'values': {
+                "fil_sustain": 0.2,
+            }
+        },
+        {
+            'label': 'fil-sustain-00',
+            'weight': 1,
+            'values': {
+                "fil_sustain": 0.0,
+            }
+        },
+    ],
+    'fil-release' : [
+        {
+            'label': 'fil-release-00',
+            'weight': 1,
+            'values': {
+                "fil_release": 0.0,
+            }
+        },
+        {
+            'label': 'fil-release-03',
+            'values': {
+                "fil_release": 0.3,
+            }
+        },
+        {
+            'label': 'fil-release-06',
+            'values': {
+                "fil_release": 0.6,
+            }
+        },
+        {
+            'label': 'fil-release-12',
+            'values': {
+                "fil_release": 1.2,
+            }
+        },
+        {
+            'label': 'fil-release-24',
+            'weight': 2,
+            'values': {
+                "fil_release": 2.4,
+            }
+        },
+        {
+            'label': 'fil-release-40',
+            'weight': 1,
+            'values': {
+                "fil_release": 4.0,
+            }
+        },
+    ],
+    'mod-attack' : [
+        {
+            'label': 'mod-attack-00',
+            'values': {
+                "mod_attack": 0.0,
+            }
+        },
+        {
+            'label': 'mod-attack-01',
+            'values': {
+                "mod_attack": 0.1,
+            }
+        },
+        {
+            'label': 'mod-attack-05',
+            'values': {
+                "mod_attack": 0.5,
+            }
+        },
+    ],
+    'mod-decay' : [
+        {
+            'label': 'mod-decay-03',
+            'values': {
+                "mod_decay": 0.3,
+            }
+        },
+        {
+            'label': 'mod-decay-06',
+            'values': {
+                "mod_decay": 0.6,
+            }
+        },
+        {
+            'label': 'mod-decay-12',
+            'weight': 2,
+            'values': {
+                "mod_decay": 1.2,
+            }
+        },
+    ],
+    'mod-sustain' : [
+        {
+            'label': 'mod-sustain-10',
+            'values': {
+                "mod_sustain": 1.0,
+            }
+        },
+        {
+            'label': 'mod-sustain-08',
+            'values': {
+                "mod_sustain": 0.8,
+            }
+        },
+        {
+            'label': 'mod-sustain-04',
+            'values': {
+                "mod_sustain": 0.4,
+            }
+        },
+        {
+            'label': 'mod-sustain-02',
+            'values': {
+                "mod_sustain": 0.2,
+            }
+        },
+        {
+            'label': 'mod-sustain-00',
+            'weight': 1,
+            'values': {
+                "mod_sustain": 0.0,
+            }
+        },
+    ],
+    'mod-release' : [
+        {
+            'label': 'mod-release-00',
+            'weight': 1,
+            'values': {
+                "mod_release": 0.0,
+            }
+        },
+        {
+            'label': 'mod-release-03',
+            'values': {
+                "mod_release": 0.3,
+            }
+        },
+        {
+            'label': 'mod-release-06',
+            'values': {
+                "mod_release": 0.6,
+            }
+        },
+        {
+            'label': 'mod-release-12',
+            'values': {
+                "mod_release": 1.2,
+            }
+        },
+        {
+            'label': 'mod-release-24',
+            'weight': 2,
+            'values': {
+                "mod_release": 2.4,
+            }
+        },
+        {
+            'label': 'mod-release-40',
+            'weight': 1,
+            'values': {
+                "mod_release": 4.0,
+            }
+        },
+    ],
+    'polyphony' : [
+        {
+            'label': 'poly-1',
+            'weight': 5,
+            'values': {
                 "polyphony": 1,
             }
         },
         {
-            'label': 'pluck',
+            'label': 'poly-4',
             'values': {
-                "amp_attack": 0.10000000149011611938,
-                "amp_decay": 0.94117647058823517003,
-                "amp_release": 0.76470588235294112422,
-                "amp_sustain": 0,
+                "polyphony": 4,
+            }
+        },
+        {
+            'label': 'poly-6',
+            'values': {
                 "polyphony": 6,
             }
         },
         {
-            'label': 'pad',
+            'label': 'poly-12',
+            'weight': 5,
             'values': {
-                "amp_attack": 0.56617647058823528106,
-                "amp_decay": 1.5,
-                "amp_release": 1.0372242647058822484,
-                "amp_sustain": 0.82875689338235292158,
                 "polyphony": 12,
             }
         },
@@ -378,6 +726,200 @@ let settingGroup = {
             }
         },
     ],
+    "filter-envelope-mod-cutoff": [
+        {
+            'label': 'femc-0',
+            'values': {},
+            'modulations': [],
+        },
+        {
+            'label': 'femc-1',
+            'weight': 2,
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": -40.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-2',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": -20.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-3',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": -10.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-4',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": -5.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-5',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": 5.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-6',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": 10.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-7',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": 20.0,
+                }
+            ],
+        },
+        {
+            'label': 'femc-8',
+            'weight': 2,
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "cutoff",
+                    "amount": 40.0,
+                }
+            ],
+        },
+    ],
+    'filter-envelope-mod-res': [
+        {
+            'label': 'femr-0',
+            'values': {},
+            'modulations': [],
+        },
+        {
+            'label': 'femr-1',
+            'weight': 2,
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": -0.56,
+                }
+            ],
+        },
+        {
+            'label': 'femr-2',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": -0.28,
+                }
+            ],
+        },
+        {
+            'label': 'femr-3',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": -0.14,
+                }
+            ],
+        },
+        {
+            'label': 'femr-4',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": -0.07,
+                }
+            ],
+        },
+        {
+            'label': 'femr-5',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": 0.07,
+                }
+            ],
+        },
+        {
+            'label': 'femr-6',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": 0.14,
+                }
+            ],
+        },
+        {
+            'label': 'femr-7',
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": 0.28,
+                }
+            ],
+        },
+        {
+            'label': 'femr-8',
+            'weight': 2,
+            'values': {},
+            'modulations': [
+                {
+                    "source": "fil_envelope",
+                    "destination": "resonance",
+                    "amount": 0.56,
+                }
+            ],
+        },
+    ],
     "filter": [
         {
             'label': 'filter1',
@@ -416,45 +958,20 @@ let settingGroup = {
             }
         },
     ],
-    'filter-envelope' : [
-        {
-            'label': 'sweep',
-            'values': {
-                "fil_attack": 0,
-                "fil_decay": 2.1609239568542553123,
-                "fil_env_depth": 0,
-                "fil_release": 1.8189338235294116863,
-                "fil_sustain": 0.32999999999999996003,
-            },
-            'modulations': [
-                {
-                    "source": "fil_envelope",
-                    "destination": "cutoff",
-                    "amount": -40.504489758035148839
-                }
-            ]
-        },
-        {
-            'label': 'pluck',
-            'values': {
-                "fil_attack": 0,
-                "fil_decay": 0.51125919818878173828,
-                "fil_env_depth": 19.2320098876953125,
-                "fil_release": 0.30749850241599746559,
-                "fil_sustain": 0,
-            },
-            'modulations': [
-                {
-                    "source": "fil_envelope",
-                    "destination": "cutoff",
-                    "amount": 50.098528187957811042
-                }
-            ]
-        },
-    ],
     "reverb": [
         {
             'label': 'reverb1',
+            'weight': 20,
+            'values': {
+                "reverb_damping": 0,
+                "reverb_dry_wet": 0.25,
+                "reverb_feedback": 0.82,
+                "reverb_on": 1,
+            }
+        },
+        {
+            'label': 'reverb2',
+            'weight': 20,
             'values': {
                 "reverb_damping": 0,
                 "reverb_dry_wet": 0.25,
@@ -463,7 +980,17 @@ let settingGroup = {
             }
         },
         {
-            'label': 'reverb2',
+            'label': 'reverb3',
+            'weight': 20,
+            'values': {
+                "reverb_damping": 0,
+                "reverb_dry_wet": 0.25,
+                "reverb_feedback": 0.88,
+                "reverb_on": 1,
+            }
+        },
+        {
+            'label': 'reverb4',
             'values': {
                 "reverb_damping": 0,
                 "reverb_dry_wet": 0.25,
@@ -472,7 +999,8 @@ let settingGroup = {
             }
         },
         {
-            'label': 'reverb3',
+            'label': 'reverb5',
+            'weight': 5,
             'values': {
                 "reverb_damping": 0,
                 "reverb_dry_wet": 0.5,
@@ -481,7 +1009,7 @@ let settingGroup = {
             }
         },
         {
-            'label': 'reverb4',
+            'label': 'reverb6',
             'weight': 2,
             'values': {
                 "reverb_damping": 0.25,
@@ -491,7 +1019,7 @@ let settingGroup = {
             }
         },
         {
-            'label': 'reverb5',
+            'label': 'reverb7',
             'weight': 2,
             'values': {
                 "reverb_damping": 0.5,
