@@ -1,0 +1,46 @@
+- I think we're overdriving the xmod and setting it to a value that you can't get to via the GUI,
+  leading to some really distorted sounds
+
+- maybe allow for a mix of random envelopes and tried-and-true
+  envelopes and filter settings based on good patches; we could tak
+
+- better envelope handling: build a bunch of really good envelopes (6-10 or more), and either:
+  - replace all the individual A/S/D/R settings groups
+  - add the envelopes, which could sometimes override the randomly generated envelopes,
+    allowing for some wild envelopes while still providing plenty of good working envelopes
+
+- mod envelope:
+  - modulate oscillator transposition really fast to get a little more punch on a pluck
+  - modulate oscillator unison detune (start relatively un-detuned, and widen it)
+
+- add settingsGroups for stuff like 
+  - formant
+  - feedback
+  - distortion
+  - stutter
+  - sequencer
+
+- conditional settings (like only apply a mod envelope transpose if the amp envelope has a
+  fast attack; only apply portamento when poly = 1, etc.)
+
+- portamento / legato - really should only kick in when poly = 1
+
+- add settingsGroups for "flavor":
+  - mod envelope grows slowly and:
+    - brings out some interesting LFO
+    - turns up the delay
+    - turns up high frequency osc
+    - turns up high frequency feedback
+    - affects stutter softness
+  - very slow LFO modulates things like
+    - amplitude of another LFO that modulates filter settings
+    - amplitude of another LFO that modulates pitch settings
+    - amplitude of another LFO that modulates mix settings (osc1/osc2/sub/noise)
+    - amplitude of another LFO that modulates crossmod settings
+ - sequencer
+    - modulate filters
+    - modulate mix
+    - modulate pitch
+    - bring in on slow mod envelope
+    - use slow LFO to affect slide
+ - use S/H lfo 
