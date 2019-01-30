@@ -8,6 +8,7 @@ module.exports = [
     },
     {
         'label': 'delay1',
+        'weight': 2,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.25,
@@ -16,6 +17,7 @@ module.exports = [
     },
     {
         'label': 'delay2',
+        'weight': 2,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.25,
@@ -24,6 +26,7 @@ module.exports = [
     },
     {
         'label': 'delay3',
+        'weight': 1,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.25,
@@ -32,6 +35,7 @@ module.exports = [
     },
     {
         'label': 'delay4',
+        'weight': 2,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.5,
@@ -40,6 +44,7 @@ module.exports = [
     },
     {
         'label': 'delay5',
+        'weight': 1,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.5,
@@ -48,6 +53,7 @@ module.exports = [
     },
     {
         'label': 'delay6',
+        'weight': 1,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.5,
@@ -56,6 +62,7 @@ module.exports = [
     },
     {
         'label': 'delay1',
+        'weight': 1,
         'values': {
             "delay_on": 1,
             "delay_feedback": 0.75,

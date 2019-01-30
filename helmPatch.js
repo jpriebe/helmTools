@@ -32,7 +32,7 @@ function helmGen (author, name, folder)
         new helmSetting ( "delay_tempo", 0.0, 11.0, 12, 9.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "distortion_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "distortion_type", 0.0, 3.0, 4, 0.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "distortion_drive", -30.0, 30.0, 0, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "distortion_drive", -30.0, 30.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
         new helmSetting ( "distortion_mix", 0.0, 1.0, 0, 1.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "fil_attack", 0.0, 4.0, 0, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "fil_decay", 0.0, 4.0, 0, 1.5, 'ALWAYS', 1.0 ),
