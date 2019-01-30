@@ -19,7 +19,10 @@ function helmGen (author, name, folder)
         new helmSetting ( "arp_sync", 0.0, 3.0, 4, 1.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "arp_tempo", 0.0, 11.0, 12, 9.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "beats_per_minute", 0.333333333, 5.0, 0, 2.0, 'ALWAYS', 1.0 ),
+
+        // I actually think this is limited to 0.5 ("full-on" in the UI is 0.5); but we get some interesting noise effects when we go all the way to 1.0...
         new helmSetting ( "cross_modulation", 0.0, 1.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
+
         new helmSetting ( "cutoff", 28.0, 127.0, 0, 80.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "delay_dry_wet", 0.0, 1.0, 0, 0.5, 'ALWAYS', 1.0 ),
         new helmSetting ( "delay_feedback", -1.0, 1.0, 0, 0.4, 'ALWAYS', 1.0 ),
