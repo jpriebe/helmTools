@@ -20,12 +20,14 @@ module.exports = [
     },
     {
         'label': 'xmod3',
+        'weight': 2,
         'values': {
             "cross_modulation": 0.7,
         }
     },
     {
         'label': 'xmod4',
+        'weight': 2,
         'values': {
             "cross_modulation": 1,
         }

@@ -29,7 +29,8 @@ let settingGroup = {
     "reverb": require ('./settingGroup/reverb'),
     "delay": require ('./settingGroup/delay'),
     "delay-tempo": require ('./settingGroup/delay_tempo'),
-    "modwheel": require ('./settingGroup/modwheel') 
+    "modwheel": require ('./settingGroup/modwheel'),
+    "flavor": require ('./settingGroup/flavor'),
 };
 
 function helmSettingGroup () {
