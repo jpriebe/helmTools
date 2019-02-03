@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+/*
+let author = 'qub1t'
+let numPatchesToGenerate = 64;
+let bankPath = '/Users/priebe/Library/Audio/Presets/Helm/helmgen';
+let folder = 'helmgen';
+let patchBase = 'helmgen';
+let perturbFactor = 0.1;
+*/
+
+program
+  .version('0.0.1', '-v, --version')
+  .command('generate')
+  .alias('gen')
+  .description('generates randomized patches')
+  .option('-a, --author <author>', 'author of the patches')
+  .option('-n, --num-patches <n>', 'number of patches to create (1 - 1000), default = 64')
+  .option('-p, --path <path>', 'path to directory in which the patch bank will be created')
+  .option('-b, --bank-name <bank-name>', 'directory name for the patch bank')
+  .option('-P, --patch-base <patch-base>', 'base name for patches; patch numbers will be appended to this')
+  .option('-f, --perturb-factor <f>', 'perturbation factor, 0 to 1; default: 0.1')
+  .action(function(options){
+    let cmd = require ('./commands/generate');
+    cmd (options);
+  });
+
+
+program.parse(process.argv);
+

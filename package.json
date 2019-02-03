@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jpriebe/helmTools/issues"
   },
-  "homepage": "https://github.com/jpriebe/helmTools#readme"
+  "homepage": "https://github.com/jpriebe/helmTools#readme",
+  "dependencies": {
+    "commander": "^2.19.0"
+  }
 }
