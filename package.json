@@ -1,14 +1,14 @@
 {
-  "name": "helmgen",
+  "name": "helmTools",
   "version": "1.0.0",
-  "description": "A CLI tool to generate Helm synth patches",
+  "description": "A CLI tool to generate and manipulate Helm synth patches",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpriebe/helmgen.git"
+    "url": "git+https://github.com/jpriebe/helmTools.git"
   },
   "keywords": [
     "helm",
@@ -20,7 +20,7 @@
   "author": "Jason Priebe <jason.priebe@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jpriebe/helmgen/issues"
+    "url": "https://github.com/jpriebe/helmTools/issues"
   },
-  "homepage": "https://github.com/jpriebe/helmgen#readme"
+  "homepage": "https://github.com/jpriebe/helmTools#readme"
 }
