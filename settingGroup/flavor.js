@@ -151,4 +151,100 @@ module.exports = [
             }
         ],
     },
+    {
+        'label': 'flavor-don-diablo',
+        'weight': 1,
+        'values': {
+            "mod_attack": 0,
+            "mod_decay": 0.89522057771682739258,
+            "mod_release": 1.5,
+            "mod_sustain": 0
+        },
+        "modulations": [
+          {
+            "source": "mod_envelope",
+            "destination": "osc_2_transpose",
+            "amount": -15
+          },
+          {
+            "source": "mod_envelope",
+            "destination": "osc_1_transpose",
+            "amount": -15
+          }
+        ]
+    },
+    {
+        'label': 'flavor-filter-flutter',
+        'weight': 1,
+        'values': {
+            "mono_lfo_1_amplitude": 1,
+            "mono_lfo_1_retrigger": 1,
+            "mono_lfo_1_sync": 1,
+            "mono_lfo_1_tempo": 9,
+            "mono_lfo_1_waveform": 4
+        },
+        "modulations": [
+          {
+            "source": "mono_lfo_1",
+            "destination": "cutoff",
+            "amount": -82.074055988103566506
+          }
+        ]
+    },
+    {
+        'label': 'flavor-don-diablo-w-filter-flutter',
+        'weight': 1,
+        'values': {
+            "mod_attack": 0,
+            "mod_decay": 0.89522057771682739258,
+            "mod_release": 1.5,
+            "mod_sustain": 0,
+            "mono_lfo_1_amplitude": 1,
+            "mono_lfo_1_retrigger": 1,
+            "mono_lfo_1_sync": 1,
+            "mono_lfo_1_tempo": 9,
+            "mono_lfo_1_waveform": 4
+        },
+        "modulations": [
+          {
+            "source": "mod_envelope",
+            "destination": "osc_2_transpose",
+            "amount": -15
+          },
+          {
+            "source": "mod_envelope",
+            "destination": "osc_1_transpose",
+            "amount": -15
+          },
+          {
+            "source": "mono_lfo_1",
+            "destination": "cutoff",
+            "amount": -82.074055988103566506
+          }
+        ]
+    },
+    {
+        'label': 'flavor-filter-tremolo',
+        'weight': 1,
+        'values': {
+          "mono_lfo_1_amplitude": 0.28565140845070424724,
+          "mono_lfo_1_frequency": 1,
+          "mono_lfo_1_retrigger": 2,
+          "mono_lfo_1_sync": 1,
+          "mono_lfo_1_tempo": 8,
+          "mono_lfo_1_waveform": 0
+        },
+        "modulations": [
+          {
+            "source": "mono_lfo_1",
+            "destination": "cutoff",
+            "amount": -33.640440289750884517
+          },
+          {
+            "source": "mod_wheel",
+            "destination": "mono_lfo_1_tempo",
+            "amount": 2
+          }
+        ]
+    }
 ];
