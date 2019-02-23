@@ -83,8 +83,6 @@ function generate (options) {
             }
         }
 
-        console.log (options);
-
         return options;
     }
 
