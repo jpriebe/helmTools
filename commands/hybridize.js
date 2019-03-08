@@ -1,7 +1,7 @@
 const fs = require('fs');
 let helmPatch = require ('../helmPatch');
 
-function generate (options) {
+function hybridize (files, options) {
     options = setDefaultOptions (options);
 
     let author = options['author'];
@@ -11,7 +11,7 @@ function generate (options) {
     let bankFolder = options['bankFolder'];
     let patchBase = options['patchBase'];
     let perturbFactor = options['perturbFactor'];
-    
+
     try {
         fs.mkdirSync (presetPath + '/' + bankName);
     } catch (err) {
@@ -24,13 +24,28 @@ function generate (options) {
         if (err.code !== 'EEXIST') throw err
     }
 
-    for (var i = 0; i < numPatchesToGenerate; i++) {
-        patchName = patchBase + '-' + zeroFill (i, 3)
-        let p = new helmPatch (author, patchName, bankName);
-        p.applyRandomSettingGroups ();
-        p.perturbValues (perturbFactor);
+    var i;
 
-        let json = JSON.stringify (p.getPatchDefinition (), null, 2);
+    let paramSet = {}
+    for (i = 0; i < files.length; i++) {
+        let patch = JSON.parse(fs.readFileSync(files[i], 'utf8'));
+        for (setting in patch.settings) {
+            if (typeof paramSet[setting] === 'undefined') {
+                paramSet[setting] = [];
+            }
+            paramSet[setting].push (patch.settings[setting])
+        }
+    }
+
+    for (i = 0; i < numPatchesToGenerate; i++) {
+        patchName = patchBase + '-' + zeroFill (i, 3)
+        let patch = new helmPatch (author, patchName, bankName);
+        for (setting in paramSet) {
+            patch.applySetting (setting, paramSet[setting][Math.floor(Math.random() * paramSet[setting].length)]);
+        }
+        patch.perturbValues (perturbFactor);
+
+        let json = JSON.stringify (patch.getPatchDefinition (), null, 2);
 
         let filename = presetPath + '/' + bankName + '/' + bankFolder + '/'
             + patchName + '.helm';
@@ -78,13 +93,13 @@ function generate (options) {
             options['bankName'] = 'helmTools';
         }
         if (typeof options['bankFolder'] === 'undefined') {
-            options['bankFolder'] = 'generate';
+            options['bankFolder'] = 'hybridize';
         }
         if (typeof options['patchBase'] === 'undefined') {
             options['patchBase'] = 'helmTools';
         }
         if (typeof options['perturbFactor'] === 'undefined') {
-            options['perturbFactor'] = 0.1;
+            options['perturbFactor'] = 0;
         }
         else {
             options['perturbFactor'] = options['perturbFactor'] * 1.0;
@@ -99,4 +114,4 @@ function generate (options) {
 
 }
 
-module.exports = generate;
+module.exports = hybridize;

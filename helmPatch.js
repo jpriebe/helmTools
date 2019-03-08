@@ -1,7 +1,7 @@
 let helmSetting = require ('./helmSetting');
 let helmSettingGroup = require ('./helmSettingGroup');
 
-function helmGen (author, name, folder)
+function helmPatch (author, name, folder)
 {
     let synth_version = '0.9.0';
     let license = 'Patch (c) by qub1t.  This patch is licensed under a Creative Commons Attribution 4.0 International License.  You should have received a copy of the license along with this work.  If not, see <http://creativecommons.org/licenses/by/4.0/>.';
@@ -170,6 +170,11 @@ function helmGen (author, name, folder)
     };
 
     this.applySetting = function (identifier, value) {
+        if (identifier === 'modulations') {
+            modulations = value;
+            return;
+        }
+
         if (typeof lookup[identifier] === 'undefined') {
             throw new Error ('No setting found with identifier "' + identifier + '".');
         }
@@ -224,7 +229,7 @@ function helmGen (author, name, folder)
             patch_name: name,
             folder_name: folder,
             author: author,
-            settings: o,
+            settings: o
         };
 
         return o;
@@ -232,4 +237,4 @@ function helmGen (author, name, folder)
 
 }
 
-module.exports = helmGen
+module.exports = helmPatch
