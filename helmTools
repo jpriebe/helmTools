@@ -34,5 +34,16 @@ program
     cmd (files, options);
   });
 
+  program.command('overlay [files...]')
+  .alias('ovr')
+  .description('bulk modifies patch settings by overlaying settings from the provided JSON file onto the patches')
+  .option('-p, --path <path>', 'path to Helm presets directory (must already exist)')
+  .option('-b, --bank-name <bank-name>', 'directory name for the patch bank; default = helmTools')
+  .option('-B, --bank-folder <bank-folder>', 'name for the folder within the patch bank; default = hybridize')
+  .option('-o, --overlay-json <overlay-json>', 'JSON file of settings; should mirror the patch format; only settings and modulations will be overlaid')
+  .action(function(files, options){
+    let cmd = require ('./commands/overlay');
+    cmd (files, options);
+  });
 
 program.parse(process.argv);

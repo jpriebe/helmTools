@@ -1,10 +1,6 @@
 
 Other commands:
- - hybridize -- given a list of patches, select random parameter values from them to make new patches
  - morph - given two patches, average all parameters between them
- - overlay - overlay a set of parameter values onto all specified patches (e.g., add mod wheel support,
-   add velocity sensitivity, set polyphony, set author, etc.)
-
 
 Patch generator:
 

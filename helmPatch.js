@@ -1,5 +1,6 @@
 let helmSetting = require ('./helmSetting');
 let helmSettingGroup = require ('./helmSettingGroup');
+const fs = require('fs');
 
 function helmPatch (author, name, folder)
 {
@@ -19,10 +20,8 @@ function helmPatch (author, name, folder)
         new helmSetting ( "arp_sync", 0.0, 3.0, 4, 1.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "arp_tempo", 0.0, 11.0, 12, 9.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "beats_per_minute", 0.333333333, 5.0, 0, 2.0, 'ALWAYS', 1.0 ),
-
-        // I actually think this is limited to 0.5 ("full-on" in the UI is 0.5); but we get some interesting noise effects when we go all the way to 1.0...
+        // I actually think this is limited to 0.5 ("full-on" in the UI is 0.5); but we get some interesting noise effects when we go all the way to 1.0...        
         new helmSetting ( "cross_modulation", 0.0, 1.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
-
         new helmSetting ( "cutoff", 28.0, 127.0, 0, 80.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "delay_dry_wet", 0.0, 1.0, 0, 0.5, 'ALWAYS', 1.0 ),
         new helmSetting ( "delay_feedback", -1.0, 1.0, 0, 0.4, 'ALWAYS', 1.0 ),
@@ -30,20 +29,20 @@ function helmPatch (author, name, folder)
         new helmSetting ( "delay_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "delay_sync", 0.0, 3.0, 4, 1.0, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "delay_tempo", 0.0, 11.0, 12, 9.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "distortion_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "distortion_type", 0.0, 3.0, 4, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "distortion_drive", -30.0, 30.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
         new helmSetting ( "distortion_mix", 0.0, 1.0, 0, 1.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "distortion_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "distortion_type", 0.0, 3.0, 4, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "fil_attack", 0.0, 4.0, 0, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "fil_decay", 0.0, 4.0, 0, 1.5, 'ALWAYS', 1.0 ),
         new helmSetting ( "fil_env_depth", -128.0, 128.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
         new helmSetting ( "fil_release", 0.0, 4.0, 0, 1.5, 'ALWAYS', 1.0 ),
         new helmSetting ( "fil_sustain", 0.0, 1.0, 0, 0.5, 'ALWAYS', 1.0 ),
-        new helmSetting ( "filter_drive", -12, 20.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
         new helmSetting ( "filter_blend", 0.0, 2.0, 0, 0.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "filter_style", 0.0, 2.0, 3, 0.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "filter_shelf", 0.0, 2.0, 3, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "filter_drive", -12, 20.0, 0, 0.0, 'ONLYNONZERO', 1.0 ),
         new helmSetting ( "filter_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "filter_shelf", 0.0, 2.0, 3, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "filter_style", 0.0, 2.0, 3, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "formant_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "formant_x", 0.0, 1.0, 0, 0.5, 'ALWAYS', 1.0 ),
         new helmSetting ( "formant_y", 0.0, 1.0, 0, 0.5, 'ALWAYS', 1.0 ),
@@ -135,21 +134,23 @@ function helmPatch (author, name, folder)
         new helmSetting ( "step_sequencer_tempo", 0.0, 11.0, 12, 7.0, 'NEVER', 0.0 ),
         new helmSetting ( "step_smoothing", 0.0, 0.5, 0, 0.0, 'NEVER', 0.0 ),
         new helmSetting ( "stutter_frequency", 0.0, 7.0, 0, 3.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "stutter_sync", 0.0, 3.0, 4, 1.0, 'ALWAYS', 1.0 ),
-        new helmSetting ( "stutter_tempo", 6.0, 11.0, 6, 8.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "stutter_on", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "stutter_resample_frequency", -7.0, 4.0, 0, 1.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "stutter_resample_sync", 0.0, 3.0, 4, 1.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "stutter_resample_tempo", 0.0, 11.0, 12, 6.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "stutter_softness", 0.0, 1.0, 0, 0.2, 'ALWAYS', 1.0 ),
-        new helmSetting ( "sub_shuffle", 0.0, 1.0, 0, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "stutter_sync", 0.0, 3.0, 4, 1.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "stutter_tempo", 6.0, 11.0, 6, 8.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "sub_octave", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
+        new helmSetting ( "sub_shuffle", 0.0, 1.0, 0, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "sub_volume", 0.0, 1.0, 0, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "sub_waveform", 0.0, 10.0, 11, 2.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "unison_1_harmonize", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "unison_2_harmonize", 0.0, 1.0, 2, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "velocity_track", -1.0, 1.0, 0, 0.0, 'ALWAYS', 1.0 ),
         new helmSetting ( "volume", 0.0, 1.4143, 0, 0.7071068, 'ALWAYS', 1.0 ),
+
+
     ];
 
     let lookup = {};
@@ -169,6 +170,10 @@ function helmPatch (author, name, folder)
         modulations = [];
     };
 
+    this.getName = function () {
+        return name
+    }
+
     this.applySetting = function (identifier, value) {
         if (identifier === 'modulations') {
             modulations = value;
@@ -180,6 +185,18 @@ function helmPatch (author, name, folder)
         }
         lookup[identifier].setValue (value);
     };
+
+
+    this.getSetting = function (identifier) {
+        if (identifier === 'modulations') {
+            return modulations
+        }
+
+        if (typeof lookup[identifier] === 'undefined') {
+            throw new Error ('No setting found with identifier "' + identifier + '".');
+        }
+        return lookup[identifier].getCurrentValue ();
+    }
 
     this.applyRandomSettingGroups = function () {
         let domains = helmSettingGroup.domains;
@@ -235,6 +252,22 @@ function helmPatch (author, name, folder)
         return o;
     }
 
+
+
+}
+
+helmPatch.loadFromJSON = function (file) {
+    let o = JSON.parse(fs.readFileSync(file, 'utf8'));
+
+    let patch = new helmPatch (o.author, o.patch_name, o.folder_name)
+
+    if (typeof o.settings !== 'undefined') {
+        for (var k in o.settings) {
+            patch.applySetting(k, o.settings[k])
+        }
+    }
+
+    return patch
 }
 
 module.exports = helmPatch
